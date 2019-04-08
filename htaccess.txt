@@ -1,0 +1,66 @@
+Options +Indexes
+
+<IfModule mod_autoindex.c>
+
+  # Ignore listing of the listing directory
+  IndexIgnore "/var/www/html"
+
+  # Indexing options
+  IndexOptions +AddAltClass +Charset=UTF-8 +FancyIndexing +FoldersFirst +HTMLTable
+  IndexOptions +IgnoreCase +NameWidth=* +SuppressRules +SuppressDescription +IconsAreLinks
+
+  # Some meta tags to add to the head tag
+  IndexHeadInsert "<meta name='viewport' content='width=device-width, initial-scale=1'><meta http-equiv='X-UA-Compatible' content='IE=edge'>"
+
+  HeaderName "/var/www/html/header.html"
+  ReadmeName "/var/www/html/footer.html"
+  IndexStyleSheet "/var/www/html/table.css"
+
+
+  # Registering icons
+  # Default icon
+  DefaultIcon "/var/www/html/icons/unknown.svg"
+
+  # Some generic icons
+  AddIcon "/var/www/html/icons/blank.svg" ^^BLANKICON^^
+  AddIcon "/var/www/html/icons/folder.svg" ^^DIRECTORY^^
+  AddIcon "/var/www/html/icons/folder-home.svg" ..
+
+  # Extension specific icons
+  AddIcon "/var/www/html/icons/archive.svg" .zip .7z .bz2 .cab .gz .tar .rar
+  AddIcon "/var/www/html/icons/audio.svg" .aac .aif .aifc .aiff .ape .au .flac .iff .m4a .mid .mp3 .mpa .ra .wav .wma .f4a .f4b .oga .ogg .xm .it .s3m .mod
+  AddIcon "/var/www/html/icons/bin.svg" .bin .hex
+  AddIcon "/var/www/html/icons/code.svg" .xml
+  AddIcon "/var/www/html/icons/doc.svg" .doc .docx .docm .dot .dotx .dotm .log .msg .odt .pages .rtf .tex .wpd .wps
+  AddIcon "/var/www/html/icons/img.svg" .bmp .png .tiff .tif .gif .jpg .jpeg .jpe .psd .ai .ico
+  AddIcon "/var/www/html/icons/spreadsheet.svg" .xlsx .xlsm .xltx .xltm .xlam .xlr .xls .csv
+  AddIcon "/var/www/html/icons/presentation.svg" .ppt .pptx .pot .potx .pptm .potm .xps
+  AddIcon "/var/www/html/icons/c++.svg" .cpp
+  AddIcon "/var/www/html/icons/c.svg" .c
+  AddIcon "/var/www/html/icons/css3.svg" .css .sass .scss .less
+  AddIcon "/var/www/html/icons/font.svg" .ttf .TTF .woff .WOFF .woff2 .WOFF2 .otf .OTF
+  AddIcon "/var/www/html/icons/h.svg" .h
+  AddIcon "/var/www/html/icons/html5.svg" .html .xhtml .shtml .htm .URL .url
+  AddIcon "/var/www/html/icons/info.svg" .nfo .info
+  AddIcon "/var/www/html/icons/iso.svg" .iso .img
+  AddIcon "/var/www/html/icons/java.svg" .jar .java
+  AddIcon "/var/www/html/icons/js.svg" .js .json
+  AddIcon "/var/www/html/icons/markdown.svg" .md
+  AddIcon "/var/www/html/icons/package.svg" .pkg .dmg .rpm .deb
+  AddIcon "/var/www/html/icons/pdf.svg" .pdf
+  AddIcon "/var/www/html/icons/php.svg" .php .phtml
+  AddIcon "/var/www/html/icons/py.svg" .py
+  AddIcon "/var/www/html/icons/rb.svg" .rb
+  AddIcon "/var/www/html/icons/script.svg" .bat .BAT .cmd .sh .ps .exe .EXE .msi .MSI
+  AddIcon "/var/www/html/icons/sql.svg" .sql
+  AddIcon "/var/www/html/icons/text.svg" .txt .cnf .conf .map .yaml
+  AddIcon "/var/www/html/icons/vector.svg" .svg .svgz
+  AddIcon "/var/www/html/icons/video.svg" .asf .asx .avi .flv .mkv .mov .mp4 .mpg .rm .srt .swf .vob .wmv .m4v .f4v .f4p .ogv
+
+  # Icons based on their type
+  AddIconByType (TXT,/var/www/html/icons/text.svg) text/*
+  AddIconByType (IMG,/var/www/html/icons/img.svg) image/*
+  AddIconByType (SND,/var/www/html/icons/audio.svg) audio/*
+  AddIconByType (VID,/var/www/html/icons/video.svg) video/*
+
+</IfModule>
